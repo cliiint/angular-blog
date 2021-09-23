@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PostService } from './service/data.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'app';
+  constructor(private postService: PostService) {
+    this.postService.initAppData();
+  }
 }
