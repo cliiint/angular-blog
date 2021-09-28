@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { IndexComponent } from './components/index/index.component';
 import { ShowComponent } from './components/show/show.component';
 import { PostFormComponent } from './components/post-form/post-form.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { PostFormComponent } from './components/post-form/post-form.component';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
