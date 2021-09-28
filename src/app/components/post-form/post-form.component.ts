@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { v4 as uuidv4 } from 'uuid';
+import { PostDataInterface } from 'src/app/models/post-data-interface';
 
 @Component({
   selector: 'post-form',
@@ -10,10 +12,15 @@ import { v4 as uuidv4 } from 'uuid';
 export class PostFormComponent implements OnInit {
   form: FormGroup = new FormGroup({});
 
-  constructor(private fb: FormBuilder) { }
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public data: PostDataInterface,
+    public dialogRef: MatDialogRef<PostFormComponent>,
+    private fb: FormBuilder
+  ) { }
 
   ngOnInit(): void {
     this.initForm();
+    if (this.data) this.patchPost();
   }
 
   initForm(): void {
@@ -27,11 +34,11 @@ export class PostFormComponent implements OnInit {
     });
   }
 
-  patchPost() {
-    
+  patchPost(): void {
+    this.form.patchValue(this.data.post);
   }
 
-  onSubmit() {
+  onSubmit(): void {
     console.log('submitting');
   }
 }
