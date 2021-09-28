@@ -23,7 +23,7 @@ export class IndexComponent implements OnInit {
 
   editPost(post: PostInterface): void {
     const dialogRef = this.dialog.open(PostFormComponent, {
-      width: '250px',
+      width: '300px',
       data: {
         post: post,
         formContext: 'Update'
