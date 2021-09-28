@@ -1,0 +1,10 @@
+<p>create works!</p>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <input formControlName="uuid" />
+  <input formControlName="title" />
+  <input formControlName="author" />
+  <input formControlName="published" />
+  <input formControlName="hero_img" />
+  <input formControlName="body" />
+  <button type="submit">create</button>
+</form>

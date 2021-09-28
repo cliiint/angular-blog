@@ -16,8 +16,4 @@ export class IndexComponent implements OnInit {
     this.posts = this.postService.load();
   }
 
-  addData() {
-    // this.postService.post()
-  }
-
 }
