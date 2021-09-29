@@ -1,12 +1,20 @@
-<p>index works!</p>
-
 <button (click)="createPost()">add</button>
 
-<div *ngFor="let post of posts">
-    <img *ngIf="post?.hero_img" [src]="post.hero_img" />
-    <p>{{ post.title }}</p>
-    <p>{{ post.author }}</p>
-    <p>{{ post.body }}</p>
-    <button mat-raised-button color="danger" (click)="deletePost(post)">delete</button>
-    <button mat-raised-button color="primary" (click)="editPost(post)">edit</button>
+<div class="cards">
+  <mat-card *ngFor="let post of posts">
+    <mat-card-header>
+      <mat-card-title>{{ post.title }}</mat-card-title>
+      <mat-card-subtitle>
+        {{ post.author }} &#9679; {{ post.published | date:'mediumDate' }}
+      </mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image *ngIf="post.hero_img" [src]="post.hero_img" />
+    <mat-card-content>
+      <p>{{ post.body | slice:0:120 }} [...]</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="danger" (click)="deletePost(post)">delete</button>
+      <button mat-raised-button color="primary" (click)="editPost(post)">edit</button>
+    </mat-card-actions>
+  </mat-card>
 </div>
