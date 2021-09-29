@@ -3,6 +3,7 @@ import { PostService } from '../../service/post.service';
 import { PostInterface } from '../../models/post-interface';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { PostFormComponent } from '../post-form/post-form.component';
+import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-index',
@@ -41,4 +42,13 @@ export class IndexComponent implements OnInit {
     })
   }
 
+  deletePost(post: PostInterface): void {
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '512px'
+    }).afterClosed().subscribe({
+      next: res => {
+        if (!!res) this.postService.delete(post);
+      }
+    })
+  }
 }

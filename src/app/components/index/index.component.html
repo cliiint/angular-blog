@@ -7,5 +7,6 @@
     <p>{{ post.title }}</p>
     <p>{{ post.author }}</p>
     <p>{{ post.body }}</p>
-    <button (click)="editPost(post)">edit</button>
+    <button mat-raised-button color="danger" (click)="deletePost(post)">delete</button>
+    <button mat-raised-button color="primary" (click)="editPost(post)">edit</button>
 </div>

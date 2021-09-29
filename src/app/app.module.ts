@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { IndexComponent } from './components/index/index.component';
 import { ShowComponent } from './components/show/show.component';
 import { PostFormComponent } from './components/post-form/post-form.component';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -21,6 +22,7 @@ import { MatButtonModule } from '@angular/material/button';
     IndexComponent,
     ShowComponent,
     PostFormComponent,
+    ConfirmDialogComponent,
   ],
   imports: [
     BrowserModule,

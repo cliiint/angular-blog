@@ -31,4 +31,9 @@ export class PostService {
   create(post: PostInterface): void {
     this.data.push(post);
   }
+
+  delete(post: PostInterface): void {
+    const index = this.data.findIndex(i => i.uuid === post.uuid);
+    this.data.splice(index, 1);
+  }
 }
