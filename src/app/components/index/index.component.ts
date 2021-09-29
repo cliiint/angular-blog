@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { PostService } from '../../service/data.service';
+import { PostService } from '../../service/post.service';
 import { PostInterface } from '../../models/post-interface';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { PostFormComponent } from '../post-form/post-form.component';
@@ -21,9 +21,19 @@ export class IndexComponent implements OnInit {
     this.posts = this.postService.load();
   }
 
+  createPost(): void {
+    const dialogRe = this.dialog.open(PostFormComponent, {
+      width: '512px',
+      data: {
+        post: null,
+        formContext: 'Create'
+      }
+    })
+  }
+
   editPost(post: PostInterface): void {
     const dialogRef = this.dialog.open(PostFormComponent, {
-      width: '300px',
+      width: '512px',
       data: {
         post: post,
         formContext: 'Update'

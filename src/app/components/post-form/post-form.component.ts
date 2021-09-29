@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { v4 as uuidv4 } from 'uuid';
 import { PostDataInterface } from 'src/app/models/post-data-interface';
+import { PostService } from 'src/app/service/post.service';
 
 @Component({
   selector: 'post-form',
@@ -15,7 +16,8 @@ export class PostFormComponent implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: PostDataInterface,
     public dialogRef: MatDialogRef<PostFormComponent>,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private postService: PostService
   ) { }
 
   ngOnInit(): void {
@@ -39,6 +41,16 @@ export class PostFormComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log('submitting');
+    if (this.data.formContext === 'Create') {
+      this.form.get('uuid')?.setValue(uuidv4());
+      this.form.get('published')?.setValue(new Date());
+      this.postService.create(this.form.value);
+      this.dialogRef.close();
+    }
+
+    if (this.data.formContext === 'Update') {
+      this.postService.patch(this.form.value);
+      this.dialogRef.close();
+    }
   }
 }

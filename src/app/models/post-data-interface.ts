@@ -2,5 +2,5 @@ import { PostInterface } from './post-interface';
 
 export interface PostDataInterface {
   post: PostInterface,
-  formContext: 'Create' | 'Edit';
+  formContext: 'Create' | 'Update';
 }

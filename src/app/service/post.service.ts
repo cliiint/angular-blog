@@ -25,13 +25,10 @@ export class PostService {
 
   patch(post: PostInterface): void {
     const index = this.data.findIndex(i => i.uuid === post.uuid);
-    console.log('patch index',index)
     this.data[index] = post;
-    console.log('data post patch',this.data);
   }
 
   create(post: PostInterface): void {
     this.data.push(post);
-    console.log('thisdata post create',this.data)
   }
 }
