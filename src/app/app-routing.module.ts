@@ -5,7 +5,7 @@ import { ShowComponent } from './components/show/show.component';
 
 const routes: Routes = [
   {
-    path: 'index',
+    path: 'posts',
     component: IndexComponent
   },
   {

@@ -1,0 +1,13 @@
+mat-toolbar-row {
+  justify-content: space-between;
+}
+
+.toolbar-left {
+  display: flex;
+}
+
+.toolbar-right {
+  a {
+    margin-right: 8px;
+  }
+}
